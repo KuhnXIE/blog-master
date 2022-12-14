@@ -7,7 +7,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.gict.studyblog.dto.ArticleDto;
 import com.gict.studyblog.entity.Article;
 import com.gict.studyblog.entity.Category;
-import com.gict.studyblog.entity.User;
 import com.gict.studyblog.handler.ResultView;
 import com.gict.studyblog.service.ArticleService;
 import com.gict.studyblog.service.CategoryService;

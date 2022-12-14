@@ -1,6 +1,5 @@
 package com.gict.studyblog.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.gict.studyblog.entity.User;
 import com.gict.studyblog.handler.ResultView;
 import com.gict.studyblog.service.UserService;

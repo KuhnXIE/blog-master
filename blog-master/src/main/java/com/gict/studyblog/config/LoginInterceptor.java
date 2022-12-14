@@ -1,13 +1,9 @@
 package com.gict.studyblog.config;
 
-import com.alibaba.fastjson.JSON;
-import com.baomidou.mybatisplus.core.toolkit.StringUtils;
-import com.gict.studyblog.entity.User;
 import com.gict.studyblog.jwt.JWTData;
 import com.gict.studyblog.jwt.JwtUtil;
 import com.gict.studyblog.redis.RedisService;
 import com.gict.studyblog.service.UserService;
-import jdk.nashorn.internal.runtime.GlobalConstants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.servlet.HandlerInterceptor;

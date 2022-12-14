@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.gict.studyblog.dto.ArticleDto;
 import com.gict.studyblog.entity.Article;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.gict.studyblog.entity.User;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

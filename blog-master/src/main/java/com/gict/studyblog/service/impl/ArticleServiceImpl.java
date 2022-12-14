@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.gict.studyblog.dto.ArticleDto;
 import com.gict.studyblog.entity.Article;
-import com.gict.studyblog.entity.User;
 import com.gict.studyblog.service.ArticleService;
 import com.gict.studyblog.mapper.ArticleMapper;
 import com.gict.studyblog.vo.ArticleQueryDto;
