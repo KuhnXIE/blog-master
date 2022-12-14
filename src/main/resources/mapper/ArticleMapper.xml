@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gict.studyblog.mapper.ArticleMapper">
+
+    <resultMap id="BaseResultMap" type="com.gict.studyblog.entity.Article">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="userId" column="user_id" jdbcType="INTEGER"/>
+            <result property="categoryId" column="category_id" jdbcType="INTEGER"/>
+            <result property="articleTitle" column="article_title" jdbcType="VARCHAR"/>
+            <result property="articleContent" column="article_content" jdbcType="VARCHAR"/>
+            <result property="type" column="type" jdbcType="TINYINT"/>
+            <result property="originalUrl" column="original_url" jdbcType="VARCHAR"/>
+            <result property="isTop" column="is_top" jdbcType="TINYINT"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
+            <result property="isDel" column="is_del" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,category_id,
+        article_title,article_content,type,
+        original_url,is_top,status,
+        is_del,create_time,update_time
+    </sql>
+
+    <select id="listDto" resultType="com.gict.studyblog.dto.ArticleDto">
+        SELECT
+            a.id,
+            u.nickname,
+            c.category_name,
+            a.article_title,
+            a.article_content,
+            a.type,
+            a.original_url,
+            a.is_top,
+            a.`status`,
+            a.create_time
+        FROM
+            article a
+                LEFT JOIN `user` u ON u.id = a.user_id
+                LEFT JOIN category c ON c.id = a.category_id
+        <where>
+            <if test="name != null and name != ''">
+                and a.article_title like concat("%", #{name}, "%")
+            </if>
+        </where>
+    </select>
+    <select id="listDtoPage" resultType="com.gict.studyblog.dto.ArticleDto">
+        SELECT
+        a.id,
+        u.nickname,
+        c.category_name,
+        a.article_title,
+        a.article_content,
+        a.type,
+        a.original_url,
+        a.is_top,
+        a.`status`,
+        a.create_time
+        FROM
+        article a
+        LEFT JOIN `user` u ON u.id = a.user_id
+        LEFT JOIN category c ON c.id = a.category_id
+        <where>
+            <if test="authorName != null and authorName != ''">
+                AND u.nickname LIKE CONCAT('%', #{authorName},'%')
+            </if>
+            <if test="categoryId != null">
+                AND c.id = #{categoryId}
+            </if>
+        </where>
+    </select>
+</mapper>
+
